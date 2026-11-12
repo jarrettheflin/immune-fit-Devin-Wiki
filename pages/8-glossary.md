@@ -61,20 +61,20 @@ Sources: `AGENTS.md:104-119`
 
 ```mermaid
 graph TD
-    "VisitorRequest" -->|Matches| "ProxyMiddleware[src/proxy.ts]"
-    "ProxyMiddleware[src/proxy.ts]" -->|Validates| "GateCheck[src/lib/gate.ts]"
-    "ProxyMiddleware[src/proxy.ts]" -->|RefreshesSession| "SessionRefresh[src/lib/supabase/proxy.ts]"
-    "ServerComponent" -->|Calls| "DAL[src/lib/dal.ts]"
-    "DAL[src/lib/dal.ts]" -->|Queries| "SupabaseClient[src/lib/supabase/server.ts]"
-    "SupabaseClient[src/lib/supabase/server.ts]" -->|ExecutesSQL| "PostgresRLS[supabase/migrations/]"
+    VisitorRequest["VisitorRequest"] -->|"Matches"| ProxyMiddleware_src_proxy_ts["ProxyMiddleware[src/proxy.ts]"]
+    ProxyMiddleware_src_proxy_ts["ProxyMiddleware[src/proxy.ts]"] -->|"Validates"| GateCheck_src_lib_gate_ts["GateCheck[src/lib/gate.ts]"]
+    ProxyMiddleware_src_proxy_ts["ProxyMiddleware[src/proxy.ts]"] -->|"RefreshesSession"| SessionRefresh_src_lib_supabase_proxy_ts["SessionRefresh[src/lib/supabase/proxy.ts]"]
+    ServerComponent["ServerComponent"] -->|"Calls"| DAL_src_lib_dal_ts["DAL[src/lib/dal.ts]"]
+    DAL_src_lib_dal_ts["DAL[src/lib/dal.ts]"] -->|"Queries"| SupabaseClient_src_lib_supabase_server_ts["SupabaseClient[src/lib/supabase/server.ts]"]
+    SupabaseClient_src_lib_supabase_server_ts["SupabaseClient[src/lib/supabase/server.ts]"] -->|"ExecutesSQL"| PostgresRLS_supabase_migrations["PostgresRLS[supabase/migrations/]"]
 
-    subgraph "Security & DAL Code Entities"
-      "ProxyMiddleware[src/proxy.ts]"
-      "GateCheck[src/lib/gate.ts]"
-      "SessionRefresh[src/lib/supabase/proxy.ts]"
-      "DAL[src/lib/dal.ts]"
-      "SupabaseClient[src/lib/supabase/server.ts]"
-      "PostgresRLS[supabase/migrations/]"
+    subgraph sg1 ["Security & DAL Code Entities"]
+      ProxyMiddleware_src_proxy_ts["ProxyMiddleware[src/proxy.ts]"]
+      GateCheck_src_lib_gate_ts["GateCheck[src/lib/gate.ts]"]
+      SessionRefresh_src_lib_supabase_proxy_ts["SessionRefresh[src/lib/supabase/proxy.ts]"]
+      DAL_src_lib_dal_ts["DAL[src/lib/dal.ts]"]
+      SupabaseClient_src_lib_supabase_server_ts["SupabaseClient[src/lib/supabase/server.ts]"]
+      PostgresRLS_supabase_migrations["PostgresRLS[supabase/migrations/]"]
     end
 ```
 Sources: `AGENTS.md:67-103`, `src/lib/dal.ts:1-70`
@@ -110,25 +110,25 @@ Sources: `src/components/charts/types.ts:1-14`, `src/components/charts/line-char
 
 ```mermaid
 graph TD
-    "MobileBottomBar" -->|Renders| "AppNav[src/components/app/app-nav.tsx]"
-    "DesktopSidebar" -->|Renders| "AppNav[src/components/app/app-nav.tsx]"
-    "AppPageLayout" -->|Contains| "ModuleStack[src/components/app/]"
-    "CardContainer" -->|Contains| "Module[src/components/app/]"
-    "RestrictedFeature" -->|Renders| "LockedModule[src/components/app/]"
-    "MetricSummaryCard" -->|Displays| "StatTiles[src/components/app/]"
-    "TimeSeriesPoint" -->|UsesType| "ChartPoint[src/components/charts/types.ts]"
-    "TimeSeriesPoint" -->|Renders| "LineChart[src/components/charts/line-chart.tsx]"
-    "FallbackTable" -->|Renders| "ChartTable[src/components/charts/chart-table.tsx]"
+    MobileBottomBar["MobileBottomBar"] -->|"Renders"| AppNav_src_components_app_app_nav_tsx["AppNav[src/components/app/app-nav.tsx]"]
+    DesktopSidebar["DesktopSidebar"] -->|"Renders"| AppNav_src_components_app_app_nav_tsx["AppNav[src/components/app/app-nav.tsx]"]
+    AppPageLayout["AppPageLayout"] -->|"Contains"| ModuleStack_src_components_app["ModuleStack[src/components/app/]"]
+    CardContainer["CardContainer"] -->|"Contains"| Module_src_components_app["Module[src/components/app/]"]
+    RestrictedFeature["RestrictedFeature"] -->|"Renders"| LockedModule_src_components_app["LockedModule[src/components/app/]"]
+    MetricSummaryCard["MetricSummaryCard"] -->|"Displays"| StatTiles_src_components_app["StatTiles[src/components/app/]"]
+    TimeSeriesPoint["TimeSeriesPoint"] -->|"UsesType"| ChartPoint_src_components_charts_types_ts["ChartPoint[src/components/charts/types.ts]"]
+    TimeSeriesPoint["TimeSeriesPoint"] -->|"Renders"| LineChart_src_components_charts_line_chart_tsx["LineChart[src/components/charts/line-chart.tsx]"]
+    FallbackTable["FallbackTable"] -->|"Renders"| ChartTable_src_components_charts_chart_table_tsx["ChartTable[src/components/charts/chart-table.tsx]"]
 
-    subgraph "UI Code Entities"
-      "AppNav[src/components/app/app-nav.tsx]"
-      "ModuleStack[src/components/app/]"
-      "Module[src/components/app/]"
-      "LockedModule[src/components/app/]"
-      "StatTiles[src/components/app/]"
-      "ChartPoint[src/components/charts/types.ts]"
-      "LineChart[src/components/charts/line-chart.tsx]"
-      "ChartTable[src/components/charts/chart-table.tsx]"
+    subgraph sg1 ["UI Code Entities"]
+      AppNav_src_components_app_app_nav_tsx["AppNav[src/components/app/app-nav.tsx]"]
+      ModuleStack_src_components_app["ModuleStack[src/components/app/]"]
+      Module_src_components_app["Module[src/components/app/]"]
+      LockedModule_src_components_app["LockedModule[src/components/app/]"]
+      StatTiles_src_components_app["StatTiles[src/components/app/]"]
+      ChartPoint_src_components_charts_types_ts["ChartPoint[src/components/charts/types.ts]"]
+      LineChart_src_components_charts_line_chart_tsx["LineChart[src/components/charts/line-chart.tsx]"]
+      ChartTable_src_components_charts_chart_table_tsx["ChartTable[src/components/charts/chart-table.tsx]"]
     end
 ```
 Sources: `AGENTS.md:40-47`, `src/components/charts/types.ts:1-14`, `src/components/charts/line-chart.tsx:1-147`

@@ -23,12 +23,12 @@ For details, see the child pages:
 
 ```mermaid
 graph TD
-    subgraph "Natural Language Space"
+    subgraph sg1 ["Natural Language Space"]
       A["Public Landing Page"] --> B["Features & Conditions"]
       C["Legal & Privacy Policy"] --> D["Terms of Service"]
     end
 
-    subgraph "Code Entity Space"
+    subgraph sg2 ["Code Entity Space"]
       E["src/app/(marketing)/page.tsx"] --> F["PhoneMock Component"]
       G["src/app/(marketing)/legal/page.tsx"] --> H["LegalPage Layout"]
     end
@@ -50,7 +50,7 @@ For details, see [Marketing Pages & Layout](6.1-marketing-pages-layout.md).
 
 ```mermaid
 graph TD
-    subgraph "Code Entity Space"
+    subgraph sg1 ["Code Entity Space"]
       I["HomePage src/app/(marketing)/page.tsx"] --> J["ButtonLink Component"]
       I --> K["PhoneMock src/components/marketing/phone-mock.tsx"]
       I --> L["NavIcon Component"]

@@ -9,7 +9,7 @@ Architecture and codebase wiki for [immune.fit](https://immune.fit), a mobile-fi
 | Generated | 2026-11-12 |
 | Pages | 29 |
 
-Source-file citations (for example `package.json:5-10`) are shown as plain code references, since the source repository is private. Diagrams are Mermaid and render directly on GitHub.
+Source-file citations (for example `package.json:5-10`) are shown as plain code references, since the source repository is private. Diagrams are Mermaid and render directly on GitHub; 12 of the 67 had Mermaid syntax errors in the original output and were repaired for rendering (syntax only, no wording changes).
 
 ## Contents
 

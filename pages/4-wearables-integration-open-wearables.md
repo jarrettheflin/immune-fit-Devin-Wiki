@@ -36,15 +36,15 @@ The wearables integration follows an asynchronous, event-driven architecture des
 
 ```mermaid
 graph TD
-    User["User Interface"] -->|Initiates Connect| ConnectRoute["src/app/api/wearables/[provider]/connect"]
-    ConnectRoute -->|Redirects| OWAPI["Open Wearables API Client"]
-    OWAPI -->|Webhook Payload| WebhookRoute["src/app/api/webhooks/open-wearables/route.ts"]
-    WebhookRoute -->|Calls request_wearable_sync RPC| SyncQueueTable["wearable_sync_requests Table"]
-    SyncQueueTable -->|Leased via drainSync| QueueLib["src/lib/wearables/queue.ts"]
-    QueueLib -->|Fetches & Syncs| SyncLib["src/lib/wearables/sync.ts"]
-    SyncLib -->|Normalizes Data| MapLib["src/lib/wearables/map.ts"]
-    MapLib -->|Persists Metrics| Database["device_metrics & activity_logs"]
-    CronRoute["src/app/api/cron/wearables-sync/route.ts"] -->|Triggers Catch-up| QueueLib
+    User["User Interface"] -->|"Initiates Connect"| ConnectRoute["src/app/api/wearables/[provider]/connect"]
+    ConnectRoute -->|"Redirects"| OWAPI["Open Wearables API Client"]
+    OWAPI -->|"Webhook Payload"| WebhookRoute["src/app/api/webhooks/open-wearables/route.ts"]
+    WebhookRoute -->|"Calls request_wearable_sync RPC"| SyncQueueTable["wearable_sync_requests Table"]
+    SyncQueueTable -->|"Leased via drainSync"| QueueLib["src/lib/wearables/queue.ts"]
+    QueueLib -->|"Fetches & Syncs"| SyncLib["src/lib/wearables/sync.ts"]
+    SyncLib -->|"Normalizes Data"| MapLib["src/lib/wearables/map.ts"]
+    MapLib -->|"Persists Metrics"| Database["device_metrics & activity_logs"]
+    CronRoute["src/app/api/cron/wearables-sync/route.ts"] -->|"Triggers Catch-up"| QueueLib
 ```
 
 **Sources:**

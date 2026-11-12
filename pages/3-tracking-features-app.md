@@ -75,12 +75,12 @@ Sources: `src/app/(app)/activity/page.tsx:1-14`, `src/app/(app)/energy/page.tsx:
 Title: "Tracking Surfaces to Code Entity Mapping"
 ```mermaid
 graph TD
-  subgraph "NaturalLanguageSpace"
+  subgraph sg1 ["NaturalLanguageSpace"]
     A["ActivityPage"]
     B["EnergyAndSleepPage"]
   end
 
-  subgraph "CodeEntitySpace"
+  subgraph sg2 ["CodeEntitySpace"]
     C["src/app/(app)/activity/page.tsx"]
     D["src/app/(app)/energy/page.tsx"]
     E["src/lib/dal.ts"]
@@ -100,14 +100,14 @@ Sources: `src/app/(app)/activity/page.tsx:1-69`, `src/app/(app)/energy/page.tsx:
 Title: "Data Flow for Tracking Modules"
 ```mermaid
 graph LR
-  subgraph "ClientRequest"
+  subgraph sg1 ["ClientRequest"]
     H["ClientRoute"]
   end
-  subgraph "ServerDataAccess"
+  subgraph sg2 ["ServerDataAccess"]
     I["requireOnboardedProfile"]
     J["getSupabase"]
   end
-  subgraph "DatabaseLayer"
+  subgraph sg3 ["DatabaseLayer"]
     K["SupabasePostgreSQL"]
   end
 

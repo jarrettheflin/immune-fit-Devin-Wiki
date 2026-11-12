@@ -38,7 +38,7 @@ Title: AI Companion Request Flow
 graph TD
     User["User Interaction"] --> API["POST /api/chat src/app/api/chat/route.ts:25-116"]
     API --> Guard["companionGuard src/lib/companion/guard.ts:18-39"]
-    Guard -->|Check Consent & Caps| DB[(Supabase Database)]
+    Guard -->|"Check Consent & Caps"| DB[(Supabase Database)]
     API --> Context["buildUserContext src/lib/companion/context.ts"]
     API --> History["recentMessages src/lib/companion/conversations.ts"]
     API --> Prompt["SYSTEM_PROMPT src/lib/companion/prompt.ts:8-26"]
